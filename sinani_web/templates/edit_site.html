@@ -1,0 +1,11 @@
+<h2>Edit Site</h2>
+<form method="POST" action="{{ url_for('update_site') }}">
+    {% for key, value in data.items() %}
+        <label>{{ key }}:</label><br>
+        <input type="text" name="{{ key }}" value="{{ value }}"><br><br>
+    {% endfor %}
+    <!-- Save original name to identify the row -->
+    <input type="hidden" name="original_name" value="{{ data['Geofence Name'] }}">
+    <input type="submit" value="Update Site">
+</form>
+<a href="{{ url_for('sites') }}">Back to Site List</a>

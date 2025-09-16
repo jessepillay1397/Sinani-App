@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Home – Sinani{% endblock %}
+
+{% block content %}
+  <h2>Welcome, {{ username }} ({{ role }})</h2>
+
+  <div class="row my-4">
+    <div class="col-md-6 mb-3">
+      <a href="{{ url_for('vehicle') }}" class="btn btn-lg btn-outline-primary w-100">
+        Vehicle Management
+      </a>
+    </div>
+    <div class="col-md-6 mb-3">
+      <a href="{{ url_for('sites') }}" class="btn btn-lg btn-outline-success w-100">
+        Site Management
+      </a>
+    </div>
+  </div>
+
+  <a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+{% endblock %}

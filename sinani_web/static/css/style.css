@@ -1,0 +1,13 @@
+/* static/css/style.css */
+
+/* full-screen, fixed, centered background */
+body {
+  /* Flask’s url_for in a <style> block will override this, but as a fallback: */
+  background: url("/static/images/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* keep content cards a bit opaque if you like */
+.card, .bg-white {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}

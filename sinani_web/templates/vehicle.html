@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Vehicle Management – Sinani{% endblock %}
+
+{% block content %}
+  <h2>Vehicle Management ({{ role }})</h2>
+  <ul class="list-group my-4">
+    <li class="list-group-item">Trip Logs</li>
+    <li class="list-group-item">
+      <a href="{{ url_for('trip_logs') }}">Trip Logs</a>
+    </li>
+    <li class="list-group-item">Vehicle Inspections</li>
+    <li class="list-group-item">Service Bookings</li>
+    <li class="list-group-item">Maintenance Requests</li>
+    <li class="list-group-item">Dashboards</li>
+    <li class="list-group-item">
+      <a href="{{ url_for('sites') }}">Site Management</a>
+    </li>
+  </ul>
+  <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+{% endblock %}

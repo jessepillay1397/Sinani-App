@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+  <h2>Trip Logs Table</h2>
+
+  <!-- Back to Trip Logs Form -->
+  <a href="{{ url_for('trip_logs') }}" class="btn btn-secondary mb-3">⬅ Back to Form</a>
+
+  <!-- Search Form -->
+  <form method="get" action="{{ url_for('trip_logs_table') }}" class="row g-2 mb-3">
+    <div class="col-md-4">
+      <input type="text" name="q" value="{{ q }}" class="form-control"
+             placeholder="Search by Driver Name..." />
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+    <div class="col-md-2">
+      <a href="{{ url_for('trip_logs_table') }}" class="btn btn-outline-secondary">Clear</a>
+    </div>
+  </form>
+
+  <!-- Trip Logs Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          {% for c in columns %}
+            <th>{{ c }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+          <tr>
+            {% for c in columns %}
+              <td>{{ row[c] }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
