@@ -297,10 +297,5 @@ def update_site():
     df.to_excel(os.path.join(app.root_path, "GeofenceTable.xlsx"), index=False)
     return redirect(url_for('sites'))
 
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect(url_for('login'))
-
 if __name__ == '__main__':
     app.run(debug=True)
