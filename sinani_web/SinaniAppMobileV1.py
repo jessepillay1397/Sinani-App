@@ -283,18 +283,6 @@ def delete_site():
     df.to_excel(os.path.join(app.root_path, "GeofenceTable.xlsx"), index=False)
     return redirect(url_for('sites'))
 
-@app.route('/edit_site', methods=['POST'])
-def edit_site():
-    data = request.form.to_dict()
-    return render_template('edit_site.html', data=data)
-
-@app.route('/update_site', methods=['POST'])
-def update_site():
-    updated  = request.form.to_dict()
-    original = updated.pop('original_name')
-    df       = load_site_data()
-    df.loc[df['Geofence Name'] == original, list(updated.keys())] = list(updated.values())
-    df.to_excel(os.path.join(app.root_path, "GeofenceTable.xlsx"), index=False)
     return redirect(url_for('sites'))
 
 if __name__ == '__main__':
